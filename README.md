@@ -35,7 +35,7 @@ the recipients. When everything looks correct, you click a button in
 the pop-up window, and the extension transforms the recipient
 addresses you specified into their corresponding outbound Addy email
 addresses. As a result, the message you are sending is routed through
-the Addy server, and the recipient sess your Addy alias as your return
+the Addy server, and the recipient sees your Addy alias as your return
 address instead of your real address.
 
 For this to work, you need to include in the "description" field of
@@ -65,7 +65,7 @@ It takes a lot of time and effort to create and maintain Thunderbird
 extensions, and support is always welcome and appreciated. You can
 donate through [Liberapay][liberapay] or [Patreon][patreon] for
 recurring donations, or [Paypal][paypal] or [Venmo][venmo] for
-one-time donations].
+one-time donations.
 
 [gh]: https://github.com/jikamens/AnonAddyTB
 [issues]: https://github.com/jikamens/AnonAddyTB/issues
