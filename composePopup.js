@@ -4,9 +4,29 @@ function escapeHTML(str) {
   return new Option(str).innerHTML;
 }
 
+// This is a little ridiculous. There are race conditions in the Thunderbird
+// code which cause it to sometimes get the size of the pop-up window wrong,
+// presumably because in between the time when it calculates the proper size
+// of the window and when it pops it up, we change the content of the window.
+// Periodically changing the content of the window in an invisible way for a
+// second after content is deployed forces Thunderbird to recalculate the size
+// of the window and resize it if necessary, so within 100ms or so of when it
+// is popped up with the wrong size, it is fixed.
+function deployContentAlarm(alarm) {
+  if (alarm.name != "content") return;
+  spacer = document.getElementById("spacer");
+  if (spacer.innerText.length < 10) {
+    spacer.innerHTML += "&nbsp;";
+    messenger.alarms.create("content", { when: Date.now() + 100 });
+  }
+}
+
+messenger.alarms.onAlarm.addListener(deployContentAlarm);
+
 function deployContent(content) {
   let body = document.getElementById("main");
   body.innerHTML = content;
+  messenger.alarms.create("content", { when: Date.now() + 100 });
 }
 
 function closeButtonContent(label) {
