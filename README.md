@@ -71,7 +71,7 @@ one-time donations.
 [atn]: https://addons.thunderbird.net/thunderbird/addon/addy-io-anonaddy
 [gh]: https://github.com/jikamens/AnonAddyTB
 [issues]: https://github.com/jikamens/AnonAddyTB/issues
-[support]: mailto;jik@kamens.us
+[support]: mailto:jik@kamens.us
 [addyio]: https://addy.io/
 [anonaddy]: https://github.com/anonaddy/AnonAddy
 [apikey]: https://app.addy.io/settings/api
