@@ -3,7 +3,7 @@
   "name": "Addy.io / AnonAddy for Thunderbird",
   "short_name": "AnonAddyTB",
   "description": "Integrate Thunderbird with Addy.io / AnonAddy",
-  "version": "0.0.2",
+  "version": "0.0.3",
   // "default_locale": "en",
   "browser_specific_settings": {
     "gecko": {
