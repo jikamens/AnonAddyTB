@@ -5,7 +5,7 @@ function escapeHTML(str) {
 }
 
 function deployContent(content) {
-  let body = document.getElementsByTagName("body")[0];
+  let body = document.getElementById("main");
   body.innerHTML = content;
 }
 
