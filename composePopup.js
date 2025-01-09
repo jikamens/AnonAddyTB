@@ -30,9 +30,7 @@ function deployContent(content) {
 }
 
 function closeButtonContent(label) {
-  if (!label) {
-    label = "Close";
-  }
+  if (!label) label = "Close";
   return `<button id='closeButton'>${label}</button>`;
 }
 
@@ -55,24 +53,18 @@ async function fixRecipients(recipients, mappings) {
     let addy1 = match[1];
     let addy2 = match[2];
     let forwardingAddress = `${addy1}+${parsed.localPart}=${parsed.domain}${addy2}`;
-    if (parsed.name) {
+    if (parsed.name)
       newRecipients.push(`${parsed.name} <${forwardingAddress}>`);
-    } else {
-      newRecipients.push(forwardingAddress);
-    }
+    else newRecipients.push(forwardingAddress);
   }
   return newRecipients;
 }
 
 async function executeButtonListener() {
   let mappings = {};
-  for (let box of document.querySelectorAll("input:checked")) {
+  for (let box of document.querySelectorAll("input:checked"))
     mappings[box.name] = box.value;
-  }
-  if (Object.keys(mappings).length == 0) {
-    window.close();
-    return;
-  }
+  if (Object.keys(mappings).length == 0) return window.close();
   let tab = await messenger.tabs.getCurrent();
   let details = await messenger.compose.getComposeDetails(tab.id);
   let newDetails = {};
@@ -112,9 +104,7 @@ async function parseRecipient(recipient) {
     await messenger.messengerUtilities.parseMailboxString(recipient)
   )[0];
   let match = parsed.email.match(/(.*)@(.*)/);
-  if (!match) {
-    return null;
-  }
+  if (!match) return null;
   let localPart = match[1];
   let domain = match[2].toLowerCase();
   let address = `${localPart}@${domain}`;
@@ -143,12 +133,9 @@ async function parseRecipient(recipient) {
 function addressOptions(recipientAddress, domainAddresses) {
   // Don't modify the original
   domainAddresses = [...domainAddresses];
-  if (domainAddresses.length == 0) {
-    return { checked: false, options: [] };
-  }
-  if (domainAddresses.length == 1) {
+  if (domainAddresses.length == 0) return { checked: false, options: [] };
+  if (domainAddresses.length == 1)
     return { checked: true, options: domainAddresses };
-  }
   let defaultAddress = null;
   let checked = false;
   let nextMatchTo = 0;
@@ -164,14 +151,10 @@ function addressOptions(recipientAddress, domainAddresses) {
 
 function fixCheckboxes(event) {
   let changedElt = event.target;
-  if (!changedElt.checked) {
-    return;
-  }
+  if (!changedElt.checked) return;
   let container = changedElt.parentElement;
   for (let child of container.querySelectorAll("input[type='checkbox']")) {
-    if (child.checked && child.id != changedElt.id) {
-      child.checked = false;
-    }
+    if (child.checked && child.id != changedElt.id) child.checked = false;
   }
 }
 
@@ -181,9 +164,7 @@ async function load() {
   let tab = await messenger.tabs.getCurrent();
   let details = await messenger.compose.getComposeDetails(tab.id);
   let recipients = details.to.concat(details.cc, details.bcc);
-  if (recipients.length == 0) {
-    return noRecipientsMessage();
-  }
+  if (recipients.length == 0) return noRecipientsMessage();
   // Figure out unique email domains of all recipients, filtering out Addy
   // domains.
   let addyDomains = (
@@ -193,21 +174,13 @@ async function load() {
   let addresses = {};
   for (let recipient of recipients) {
     let addressObj = await parseRecipient(recipient);
-    if (!addressObj.localPart) {
-      continue;
-    }
-    if (addyDomains.indexOf(addressObj.domain) > -1) {
-      continue;
-    }
+    if (!addressObj.localPart) continue;
+    if (addyDomains.indexOf(addressObj.domain) > -1) continue;
     domains[addressObj.domain] = [];
-    if (!addresses[addressObj.address] || addressObj.name) {
+    if (!addresses[addressObj.address] || addressObj.name)
       addresses[addressObj.address] = addressObj;
-    }
   }
-  if (Object.keys(domains).length == 0) {
-    noRecipientsMessage();
-    return;
-  }
+  if (Object.keys(domains).length == 0) return noRecipientsMessage();
   // Search AnonAddy for the domains.
   for (let domain of Object.keys(domains)) {
     let params = {
@@ -232,13 +205,9 @@ async function load() {
     let options = addressOptions(address, domains[addressObj.domain]);
 
     content += "<p>Replace <strong>";
-    if (name) {
-      content += escapeHTML(name + " <");
-    }
+    if (name) content += escapeHTML(name + " <");
     content += escapeHTML(address);
-    if (name) {
-      content += escapeHTML(">");
-    }
+    if (name) content += escapeHTML(">");
     content += "</strong> with:</p>";
 
     content += "<blockquote>";
@@ -282,12 +251,10 @@ async function load() {
       .getElementById("executeButton")
       .addEventListener("click", executeButtonListener, false);
   }
-  for (let elt of document.querySelectorAll("input[type='checkbox']")) {
+  for (let elt of document.querySelectorAll("input[type='checkbox']"))
     elt.addEventListener("change", fixCheckboxes, false);
-  }
-  for (let elt of document.querySelectorAll("button[id^=create]")) {
+  for (let elt of document.querySelectorAll("button[id^=create]"))
     elt.addEventListener("click", createButtonListener, false);
-  }
 }
 
 window.addEventListener("load", load, false);

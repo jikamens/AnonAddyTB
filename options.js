@@ -9,19 +9,15 @@ function check(fix) {
   if (
     hostUrl &&
     !(hostUrl.startsWith("http://") || hostUrl.startsWith("https://"))
-  ) {
+  )
     msg.push('Addy URL must start with "http://" or "https://".');
-  }
   if (fix) {
     let newUrl = hostUrl.replace(/\/+$/, "");
-    if (newUrl != hostUrl) {
-      document.getElementById("hostUrl").value = newUrl;
-    }
+    if (newUrl != hostUrl) document.getElementById("hostUrl").value = newUrl;
   }
 
-  if (!document.getElementById("apiKey").value) {
+  if (!document.getElementById("apiKey").value)
     msg.push("API key must be specified.");
-  }
   error(msg.join("<br/>"));
   return msg.length == 0;
 }
@@ -37,9 +33,7 @@ async function changeListener(event) {
 }
 
 async function saveButtonListener(event) {
-  if (!check(true)) {
-    return;
-  }
+  if (!check(true)) return;
   let hostUrl = document.getElementById("hostUrl").value;
   let apiKey = document.getElementById("apiKey").value;
   if (hostUrl) {
@@ -51,10 +45,8 @@ async function saveButtonListener(event) {
     } catch {
       granted = false;
     }
-    if (!granted) {
-      error(`Failed to obtain permission to access ${hostUrl}.`);
-      return;
-    }
+    if (!granted)
+      return error(`Failed to obtain permission to access ${hostUrl}.`);
   }
   await messenger.storage.local.set({ options: { hostUrl, apiKey } });
   reload();

@@ -6,9 +6,7 @@ async function fetchDomanOptions() {
 }
 
 async function fetchDomainOptionsAlarm(alarm) {
-  if (alarm.name != "domainOptions") {
-    return;
-  }
+  if (alarm.name != "domainOptions") return;
   await fetchDomanOptions();
 }
 

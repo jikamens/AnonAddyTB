@@ -35,9 +35,8 @@ export async function addyApiRequest(method, endpoint, params, body) {
   let { options } = await messenger.storage.local.get({ options: {} });
   let hostUrl = options.hostUrl || "https://app.addy.io";
   let apiKey = options.apiKey;
-  if (!apiKey) {
+  if (!apiKey)
     throw new Error("No API key configured in AnonAddyTB preferences.");
-  }
   let url = new URL(`${hostUrl}/api/v1/${endpoint}`);
   Object.entries(params || {}).forEach(([key, value]) => {
     url.searchParams.append(key, value);
