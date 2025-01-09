@@ -1,5 +1,6 @@
 # Addy.io / AnonAddy for Thunderbird
 
+[addons.thunderbird.net][atn] |
 [GitHub][gh] |
 [Bug reports and suggestions][issues] |
 [E-mail support][support]
@@ -67,6 +68,7 @@ donate through [Liberapay][liberapay] or [Patreon][patreon] for
 recurring donations, or [Paypal][paypal] or [Venmo][venmo] for
 one-time donations.
 
+[atn]: https://addons.thunderbird.net/thunderbird/addon/addy-io-anonaddy
 [gh]: https://github.com/jikamens/AnonAddyTB
 [issues]: https://github.com/jikamens/AnonAddyTB/issues
 [support]: mailto;jik@kamens.us
