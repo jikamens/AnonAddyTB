@@ -8,8 +8,7 @@
   "browser_specific_settings": {
     "gecko": {
       "id": "AnonAddyTB@kamens.us",
-      "strict_min_version": "128.0",
-      "strict_max_version": "*"
+      "strict_min_version": "128.0"
     }
   },
   "host_permissions": ["*://app.addy.io/"],
