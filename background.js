@@ -20,17 +20,13 @@ messenger.alarms.create("domainOptions", {
 
 async function checkForApiKey() {
   let { options } = await messenger.storage.local.get({ options: {} });
-  if (!options.apiKey) {
-    await messenger.runtime.openOptionsPage();
-  }
+  if (!options.apiKey) await messenger.runtime.openOptionsPage();
 }
 
 checkForApiKey();
 
 async function storageChangedListener(changes, areaName) {
-  if (changes.options) {
-    await fetchDomanOptions();
-  }
+  if (changes.options) await fetchDomainOptions();
 }
 
 messenger.storage.onChanged.addListener(storageChangedListener);
