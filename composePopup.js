@@ -186,6 +186,7 @@ async function load() {
   }
   if (Object.keys(domains).length == 0) {
     noRecipientsMessage();
+    return;
   }
   // Search AnonAddy for the domains.
   for (let domain of Object.keys(domains)) {
