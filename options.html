@@ -1,0 +1,18 @@
+<!doctype html>
+<html>
+  <head>
+    <script type="module" src="options.js"></script>
+  </head>
+  <body>
+    <p><label for="hostUrl">Addy URL:</label>
+      <input type="text" id="hostUrl"
+             placeholder="https://app.addy.io"/>
+    (leave blank for Addy.io)</p>
+    <p><label for="apiKey">API key:</label>
+      <input type="text" id="apiKey" placeholder="addy_io_etc."
+             size=56/></p>
+    <div style="color: red; font-size: 75%" id="errors"></div>
+    <p><button id="saveButton" disabled>Save</button>
+      <button id="resetButton" disabled>Reset</button></p>
+  </body>
+</html>
