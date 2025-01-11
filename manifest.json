@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
-  "name": "Addy.io / AnonAddy for Thunderbird",
+  "name": "addy.io / AnonAddy for Thunderbird",
   "short_name": "AnonAddyTB",
-  "description": "Integrate Thunderbird with Addy.io / AnonAddy",
+  "description": "Integrate Thunderbird with addy.io / AnonAddy",
   "version": "0.0.3",
   // "default_locale": "en",
   "browser_specific_settings": {

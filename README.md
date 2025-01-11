@@ -1,4 +1,4 @@
-# Addy.io / AnonAddy for Thunderbird
+# addy.io / AnonAddy for Thunderbird
 
 [addons.thunderbird.net][atn] |
 [GitHub][gh] |
@@ -17,14 +17,14 @@ You can [contribute](#donate) to ongoing development and maintenance
 of this add-on if you find it useful.
 
 This extension and its author are not affiliated with the maintainer
-of the Addy.io service. It was developed and is supported
+of the addy.io service. It was developed and is supported
 independently.
 
 ## Details about the extension
 
-This repository contains the source code for "Addy.io / AnonAddy for
+This repository contains the source code for "addy.io / AnonAddy for
 Thunderbird", a Thunderbird extension which integrates
-[Addy.io][addyio] or any self-hosted [AnonAddy][anonaddy] server into
+[addy.io][addyio] or any self-hosted [AnonAddy][anonaddy] server into
 the Thunderbird message composition window.
 
 This extension adds a button to the composition window. When you click
@@ -49,10 +49,10 @@ alias that you specifically want to use for exchanging email with
 the description.
 
 When you first install the extension, its options page opens
-automatically. Fill in your Addy.io or AnonAddy API key (see
-[here][apikey] for Addy.io) and save the options to enable the
+automatically. Fill in your addy.io or AnonAddy API key (see
+[here][apikey] for addy.io) and save the options to enable the
 extension. Optionally, specify the base URL of a self-hosted AnonAddy
-server to use instead of Addy.io. If you specify a self-hosted server
+server to use instead of addy.io. If you specify a self-hosted server
 then when you save the options you are prompted to grant permission
 for the extension to make API calls to that server.
 
