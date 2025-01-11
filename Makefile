@@ -1,6 +1,6 @@
 excluded=$(wildcard .??*) $(wildcard *~) $(wildcard *xpi) Makefile README.md \
   SECURITY.md node_modules package-lock.json package.json
-included=LICENSE.txt $(wildcard *.js) $(wildcard *.html) manifest.json
+included=LICENSE.txt $(wildcard *.js) $(wildcard *.html) manifest.json icon.svg
 extra=$(filter-out $(excluded) $(included),$(shell ls))
 target=AnonAddyTB.xpi
 
