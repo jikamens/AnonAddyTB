@@ -68,6 +68,10 @@ donate through [Liberapay][liberapay] or [Patreon][patreon] for
 recurring donations, or [Paypal][paypal] or [Venmo][venmo] for
 one-time donations.
 
+## Generative AI policy
+
+This project does not solicit or accept work produced with substantive assistance from generative AI. Only [hand-crafted code][hcc] is welcome here.
+
 [atn]: https://addons.thunderbird.net/thunderbird/addon/addy-io-anonaddy
 [gh]: https://github.com/jikamens/AnonAddyTB
 [issues]: https://github.com/jikamens/AnonAddyTB/issues
@@ -79,3 +83,4 @@ one-time donations.
 [patreon]: https://www.patreon.com/jikseclecticofferings
 [paypal]: https://paypal.me/JonathanKamens
 [venmo]: https://venmo.com/Jonathan-Kamens
+[hcc]: https://handcraftedcode.org
